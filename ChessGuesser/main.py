@@ -16,7 +16,7 @@ def checkGame(game):
     return spliced_game
 
 def main():
-    stockfish = Stockfish(path=r"C:\Users\justi\OneDrive\Desktop\stockfish_15.1_win_x64_avx2\stockfish_15.1_win_x64_avx2\stockfish-windows-2022-x86-64-avx2.exe", depth=24, parameters={"Threads": 12, "Minimum Thinking Time": 1000})
+    stockfish = Stockfish(path=r"C:\Users\justi\OneDrive\Desktop\stockfish_15.1_win_x64_avx2\stockfish_15.1_win_x64_avx2\stockfish-windows-2022-x86-64-avx2.exe", depth=24, parameters={"Threads": 16, "Minimum Thinking Time": 1000})
     # stockfish.set_position(["e2e4", "e7e5", "d1f3", "b8a6", "f1c4", "a6b4"])
     # print(stockfish.get_evaluation())
     game_dict = {}
@@ -95,7 +95,7 @@ def main():
             else:
                 game_bool = True
         #print("Line{}: {}".format(count, line.strip()))
-        if count >= 500:
+        if count >= 2000:
             break
     file1.close()
     print("game_dict['games'] len:",len(game_dict['games']))
@@ -111,7 +111,7 @@ def main():
     # for game in game_dict:
     #     if " 2. Ke2" in game_dict[game]:
     #         print(game_dict[game])
-    file2 = open('10kgames.txt', 'w')
+    file2 = open('2kgames.json', 'w')
     file2.write(json_)
 
 
